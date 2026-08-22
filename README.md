@@ -55,27 +55,10 @@ Clicking any photo opens it in a full-screen lightbox.
 
 ---
 
-## 🔗 How to Update Social Links
-
-Open `index.html` and search for `href="#"` — replace each `#` with the real URL:
-
-| Element ID | What to update |
-|---|---|
-| `hero-linkedin` | Your LinkedIn profile URL |
-| `hero-github` | Your GitHub profile URL |
-| `hero-x` | Your X (Twitter) profile URL |
-| `hero-email` | `mailto:your@email.com` |
-| `contact-linkedin` | Same LinkedIn URL |
-| `contact-github` | Same GitHub URL |
-| `contact-x` | Same X URL |
-| `contact-email` | Same email |
-
----
-
 ## 🖼️ How to Replace the Profile Photo
 
-Replace `assets/images/chioma-profile.png` with your actual professional photo.
-Keep the same filename, or update all `src="assets/images/chioma-profile.png"` references in `index.html`.
+Replace `assets/images/chioma-profile.jpg` with your actual professional photo if you ever want to update it.
+Keep the same filename, or update all references in `index.html`.
 
 **Recommended**: Square crop, minimum 600×600px, `.jpg` or `.webp` for best performance.
 
