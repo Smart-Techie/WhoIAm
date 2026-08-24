@@ -419,12 +419,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   opacity: 0;
   animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   animation-delay: 0.5s;
+  display: flex;
+  justify-content: center;
+}
+.hero-avatar-container {
+  position: relative;
+  width: 380px;
+  height: 380px;
 }
 .hero-image-frame {
   position: relative;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  aspect-ratio: 1/1;
   background: var(--navy-soft);
   border: 2.5px solid #00f2fe;
   box-shadow: 0 0 25px rgba(0, 242, 254, 0.25);
@@ -509,13 +517,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* GDG badge — upper right */
 .badge-top-right {
-  top: 15%;
-  right: -18%;
+  top: 8%;
+  right: -10%;
 }
 /* Founder badge — lower left */
 .badge-bottom-left {
-  bottom: 12%;
-  left: -20%;
+  bottom: 8%;
+  left: -12%;
 }
 
 .badge-icon {
@@ -531,6 +539,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.9);
 }
+
 
 
 
@@ -1620,6 +1629,10 @@ footer {
     grid-template-columns: 1fr 320px;
     gap: 3rem;
   }
+  .hero-avatar-container {
+    width: 320px;
+    height: 320px;
+  }
   .hero-title { font-size: clamp(2.2rem, 4.5vw, 3.2rem); }
   .about-grid { grid-template-columns: 280px 1fr; gap: 3.5rem; }
 }
@@ -1646,13 +1659,11 @@ footer {
     justify-content: center;
     order: -1;
   }
-  .hero-image-frame {
+  .hero-avatar-container {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
   }
-  .hero-image-decoration { display: none; }
-  .hero-image-dot        { display: none; }
+
 
   /* About */
   .about-grid {
@@ -1720,7 +1731,7 @@ footer {
   .hero-inner { padding: 3rem 0 4rem; }
   .hero-title { font-size: clamp(2rem, 6vw, 2.8rem); }
   .hero-badge { font-size: 0.7rem; }
-  .hero-image-frame {
+  .hero-avatar-container {
     width: 160px;
     height: 160px;
   }
@@ -1734,11 +1745,11 @@ footer {
   .orbit-dot { width: 7px; height: 7px; }
   .purple-dot { left: -4px; }
   .cyan-dot { right: -4px; }
-  .hero-identity-badge { padding: 0.35rem 0.6rem; gap: 6px; }
-  .badge-icon { font-size: 0.8rem; }
-  .badge-text { font-size: 0.58rem; }
-  .badge-top-right { top: 10%; right: -12%; }
-  .badge-bottom-left { bottom: 10%; left: -14%; }
+  .hero-identity-badge { padding: 0.35rem 0.65rem; gap: 5px; }
+  .badge-icon { font-size: 0.75rem; }
+  .badge-text { font-size: 0.55rem; }
+  .badge-top-right { top: 6%; right: -8%; }
+  .badge-bottom-left { bottom: 6%; left: -10%; }
 
 
   /* About */
@@ -1808,7 +1819,7 @@ footer {
   .hero-desc { font-size: 0.93rem; }
   .hero-actions { flex-direction: column; align-items: center; }
   .hero-actions .btn { width: 100%; max-width: 280px; justify-content: center; }
-  .hero-image-frame { width: 140px; height: 140px; }
+  .hero-avatar-container { width: 140px; height: 140px; }
 
   /* Section heading */
   .section-title { font-size: clamp(1.6rem, 6.5vw, 2.1rem); }
