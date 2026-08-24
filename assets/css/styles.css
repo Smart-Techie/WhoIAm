@@ -1729,6 +1729,20 @@ footer {
 
   /* Hero compact */
   .hero-inner { padding: 3rem 0 4rem; }
+  .hero-glow {
+    width: 300px;
+    height: 300px;
+    top: -50px;
+    right: -80px;
+    background: radial-gradient(circle, rgba(79,124,255,0.22) 0%, transparent 70%);
+  }
+  .hero-glow-2 {
+    width: 250px;
+    height: 250px;
+    bottom: -40px;
+    left: -60px;
+    background: radial-gradient(circle, rgba(79,124,255,0.15) 0%, transparent 70%);
+  }
   .hero-title { font-size: clamp(2rem, 6vw, 2.8rem); }
   .hero-badge { font-size: 0.7rem; }
   .hero-avatar-container {
