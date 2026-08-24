@@ -449,6 +449,80 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-image-dot.tl { top: 12px; left: 12px; }
 .hero-image-dot.br { bottom: 12px; right: 12px; }
 
+/* ── Orbit ring + Identity badges ── */
+.hero-orbit {
+  position: absolute;
+  inset: -52px;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-orbit-ring {
+  width: 100%;
+  height: 100%;
+  animation: spin-orbit 22s linear infinite;
+}
+@keyframes spin-orbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Base badge chip */
+.hero-identity-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(11, 17, 40, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(79, 124, 255, 0.35);
+  border-radius: 50px;
+  padding: 0.42rem 0.95rem 0.42rem 0.65rem;
+  white-space: nowrap;
+  pointer-events: auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35), 0 0 0 1px rgba(79,124,255,0.08);
+  animation: badge-float 4s ease-in-out infinite;
+}
+@keyframes badge-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+/* GDG badge — upper right */
+.badge-top-right {
+  top: 6%;
+  right: -8%;
+  animation-delay: 0s;
+}
+/* Founder badge — lower left */
+.badge-bottom-left {
+  bottom: 6%;
+  left: -8%;
+  animation-delay: 2s;
+}
+
+.badge-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.gdg-dot {
+  background: #4285f4;
+  box-shadow: 0 0 8px rgba(66,133,244,0.8);
+}
+.founder-dot {
+  background: #34a853;
+  box-shadow: 0 0 8px rgba(52,168,83,0.8);
+}
+.badge-text {
+  font-family: var(--font-head);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.92);
+}
+
+
 /* ── About Section ── */
 #about {
   padding: 7rem 0;
@@ -1642,6 +1716,13 @@ footer {
   .hero-desc { font-size: 0.97rem; }
   .hero-actions { flex-direction: row; gap: 0.65rem; }
   .btn { padding: 0.65rem 1.3rem; font-size: 0.88rem; }
+  /* Orbit ring on mobile */
+  .hero-orbit { inset: -36px; }
+  .badge-text { font-size: 0.54rem; letter-spacing: 0.06em; }
+  .hero-identity-badge { padding: 0.35rem 0.7rem 0.35rem 0.5rem; gap: 5px; }
+  .badge-top-right { top: 2%; right: -4%; }
+  .badge-bottom-left { bottom: 2%; left: -4%; }
+
 
   /* About */
   .about-photo-wrap { max-width: 220px; }

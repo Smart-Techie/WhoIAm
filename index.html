@@ -142,6 +142,33 @@
 
       <!-- Right: Image -->
       <div class="hero-image-wrap" aria-hidden="true">
+
+        <!-- Rotating orbit ring -->
+        <div class="hero-orbit" aria-hidden="true">
+          <svg class="hero-orbit-ring" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="200" cy="200" r="192" stroke="url(#orbitGrad)" stroke-width="1.5" stroke-dasharray="12 8" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="orbitGrad" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#4f7cff" stop-opacity="0.9"/>
+                <stop offset="50%" stop-color="#4f7cff" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="#4f7cff" stop-opacity="0.9"/>
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <!-- Identity badge: upper-right — GDG Campus Lead -->
+          <div class="hero-identity-badge badge-top-right">
+            <span class="badge-dot gdg-dot"></span>
+            <span class="badge-text">GDG COOU CAMPUS LEAD</span>
+          </div>
+
+          <!-- Identity badge: lower-left — Founder -->
+          <div class="hero-identity-badge badge-bottom-left">
+            <span class="badge-dot founder-dot"></span>
+            <span class="badge-text">FOUNDER · MALC NEXUS</span>
+          </div>
+        </div>
+
         <div class="hero-image-decoration"></div>
         <div class="hero-image-frame">
           <img
@@ -153,6 +180,7 @@
           <span class="hero-image-dot br"></span>
         </div>
       </div>
+
 
     </div>
   </div>
