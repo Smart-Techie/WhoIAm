@@ -220,10 +220,10 @@
   if (!el) return;
 
   const roles = [
-    'Product Builder',
-    'Entrepreneur',
-    'CS Student',
-    'Community Organizer'
+    'a Product Builder',
+    'an Entrepreneur',
+    'a CS Student',
+    'a Community Organizer'
   ];
   
   let roleIdx = 0;
