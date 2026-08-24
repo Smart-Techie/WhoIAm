@@ -517,13 +517,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* GDG badge — upper right */
 .badge-top-right {
-  top: 8%;
-  right: -10%;
+  top: 10%;
+  left: 82%;
 }
 /* Founder badge — lower left */
 .badge-bottom-left {
-  bottom: 8%;
-  left: -12%;
+  bottom: 10%;
+  right: 82%;
 }
 
 .badge-icon {
@@ -1748,8 +1748,8 @@ footer {
   .hero-identity-badge { padding: 0.35rem 0.65rem; gap: 5px; }
   .badge-icon { font-size: 0.75rem; }
   .badge-text { font-size: 0.55rem; }
-  .badge-top-right { top: 6%; right: -8%; }
-  .badge-bottom-left { bottom: 6%; left: -10%; }
+  .badge-top-right { top: 8%; left: 80%; }
+  .badge-bottom-left { bottom: 8%; right: 80%; }
 
 
   /* About */
