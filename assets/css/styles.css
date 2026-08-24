@@ -349,17 +349,26 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 500;
   color: var(--gray);
   margin-bottom: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
+  display: block;
+  min-height: 1.8em;
   opacity: 0;
   animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   animation-delay: 0.3s;
 }
-.hero-positioning .dot {
+.hero-positioning #typed-text {
+  color: var(--blue-light);
+  font-weight: 600;
+}
+.typed-cursor {
   color: var(--blue);
-  font-size: 0.7rem;
+  font-weight: 400;
+  animation: blink-cursor 0.75s step-end infinite;
+  margin-left: 3px;
+  display: inline-block;
+}
+@keyframes blink-cursor {
+  from, to { color: transparent }
+  50% { color: var(--blue) }
 }
 .hero-desc {
   font-size: 1.05rem;

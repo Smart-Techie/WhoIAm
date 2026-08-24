@@ -213,3 +213,49 @@
   const el = document.getElementById('footer-year');
   if (el) el.textContent = new Date().getFullYear();
 })();
+
+/* ── Typewriter Effect for Hero Roles ── */
+(function initTypewriter() {
+  const el = document.getElementById('typed-text');
+  if (!el) return;
+
+  const roles = [
+    'Product Builder',
+    'Entrepreneur',
+    'CS Student',
+    'Community Organizer'
+  ];
+  
+  let roleIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+  let typingSpeed = 100;
+
+  function type() {
+    const currentRole = roles[roleIdx];
+    
+    if (isDeleting) {
+      el.textContent = currentRole.substring(0, charIdx - 1);
+      charIdx--;
+      typingSpeed = 50; // speed up deletion
+    } else {
+      el.textContent = currentRole.substring(0, charIdx + 1);
+      charIdx++;
+      typingSpeed = 120; // normal typing speed
+    }
+
+    if (!isDeleting && charIdx === currentRole.length) {
+      isDeleting = true;
+      typingSpeed = 2000; // pause at end of word
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      roleIdx = (roleIdx + 1) % roles.length;
+      typingSpeed = 500; // pause before typing next word
+    }
+
+    setTimeout(type, typingSpeed);
+  }
+
+  // Start typewriter after page elements finish sliding in
+  setTimeout(type, 1000);
+})();
