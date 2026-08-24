@@ -422,105 +422,116 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .hero-image-frame {
   position: relative;
-  border-radius: var(--radius-xl);
+  border-radius: 50%;
   overflow: hidden;
   aspect-ratio: 1/1;
   background: var(--navy-soft);
-  border: 1px solid rgba(79,124,255,0.2);
+  border: 2.5px solid #00f2fe;
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.25);
+  z-index: 2;
 }
 .hero-image-frame img {
   width: 100%; height: 100%;
   object-fit: cover;
+  display: block;
 }
-.hero-image-decoration {
-  position: absolute;
-  inset: -12px;
-  border: 1px solid rgba(79,124,255,0.15);
-  border-radius: calc(var(--radius-xl) + 12px);
-  pointer-events: none;
-}
-.hero-image-dot {
-  position: absolute;
-  width: 12px; height: 12px;
-  background: var(--blue);
-  border-radius: 50%;
-  box-shadow: 0 0 16px var(--blue);
-}
-.hero-image-dot.tl { top: 12px; left: 12px; }
-.hero-image-dot.br { bottom: 12px; right: 12px; }
 
-/* ── Orbit ring + Identity badges ── */
-.hero-orbit {
+/* ── Concentric Rotating Orbit Rings (Dashed, planet nodes) ── */
+.hero-orbit-container {
   position: absolute;
-  inset: -52px;
-  z-index: 2;
+  inset: -35px;
   pointer-events: none;
+  z-index: 1;
 }
-.hero-orbit-ring {
-  width: 100%;
-  height: 100%;
-  animation: spin-orbit 22s linear infinite;
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  inset: 0;
 }
-@keyframes spin-orbit {
+.outer-ring {
+  inset: -15px;
+  border-color: rgba(168, 85, 247, 0.25); /* Purple */
+  animation: spin-clockwise 24s linear infinite;
+}
+.inner-ring {
+  inset: 15px;
+  border-color: rgba(6, 182, 212, 0.25); /* Cyan */
+  animation: spin-counter-clockwise 18s linear infinite;
+}
+
+/* Glowing planetary nodes on the rings */
+.orbit-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.purple-dot {
+  background: #a855f7;
+  box-shadow: 0 0 12px #a855f7, 0 0 4px #a855f7;
+  top: 50%;
+  left: -5px;
+  transform: translateY(-50%);
+}
+.cyan-dot {
+  background: #00f2fe;
+  box-shadow: 0 0 12px #00f2fe, 0 0 4px #00f2fe;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+}
+
+@keyframes spin-clockwise {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
+@keyframes spin-counter-clockwise {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
 
-/* Base badge chip */
+/* Base badge chip - card style from screenshot */
 .hero-identity-badge {
   position: absolute;
   display: flex;
   align-items: center;
-  gap: 7px;
-  background: rgba(11, 17, 40, 0.88);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(79, 124, 255, 0.35);
-  border-radius: 50px;
-  padding: 0.42rem 0.95rem 0.42rem 0.65rem;
+  gap: 8px;
+  background: #0c122c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.55rem 0.95rem;
   white-space: nowrap;
   pointer-events: auto;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.35), 0 0 0 1px rgba(79,124,255,0.08);
-  animation: badge-float 4s ease-in-out infinite;
-}
-@keyframes badge-float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-5px); }
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  z-index: 3;
 }
 
 /* GDG badge — upper right */
 .badge-top-right {
-  top: 6%;
-  right: -8%;
-  animation-delay: 0s;
+  top: 15%;
+  right: -18%;
 }
 /* Founder badge — lower left */
 .badge-bottom-left {
-  bottom: 6%;
-  left: -8%;
-  animation-delay: 2s;
+  bottom: 12%;
+  left: -20%;
 }
 
-.badge-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.gdg-dot {
-  background: #4285f4;
-  box-shadow: 0 0 8px rgba(66,133,244,0.8);
-}
-.founder-dot {
-  background: #34a853;
-  box-shadow: 0 0 8px rgba(52,168,83,0.8);
+.badge-icon {
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .badge-text {
   font-family: var(--font-head);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.92);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.9);
 }
+
 
 
 /* ── About Section ── */
@@ -1717,11 +1728,17 @@ footer {
   .hero-actions { flex-direction: row; gap: 0.65rem; }
   .btn { padding: 0.65rem 1.3rem; font-size: 0.88rem; }
   /* Orbit ring on mobile */
-  .hero-orbit { inset: -36px; }
-  .badge-text { font-size: 0.54rem; letter-spacing: 0.06em; }
-  .hero-identity-badge { padding: 0.35rem 0.7rem 0.35rem 0.5rem; gap: 5px; }
-  .badge-top-right { top: 2%; right: -4%; }
-  .badge-bottom-left { bottom: 2%; left: -4%; }
+  .hero-orbit-container { inset: -20px; }
+  .outer-ring { inset: -8px; }
+  .inner-ring { inset: 8px; }
+  .orbit-dot { width: 7px; height: 7px; }
+  .purple-dot { left: -4px; }
+  .cyan-dot { right: -4px; }
+  .hero-identity-badge { padding: 0.35rem 0.6rem; gap: 6px; }
+  .badge-icon { font-size: 0.8rem; }
+  .badge-text { font-size: 0.58rem; }
+  .badge-top-right { top: 10%; right: -12%; }
+  .badge-bottom-left { bottom: 10%; left: -14%; }
 
 
   /* About */
